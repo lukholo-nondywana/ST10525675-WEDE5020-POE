@@ -4,63 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Send an enquiry to Premier Football Academy about our training programmes.">
     <title>Premier Football Academy - Enquiry</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-    <nav>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <a href="index.html">Home</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="enquiry.html" class="active" aria-current="page">Enquiry</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <a href="about.html">About Us</a>
+    <main id="main">
+        <section class="container">
+            <h1>Make an Enquiry</h1>
+            <p>
+                Complete the form below if you would like
+                more information about our programmes.
+            </p>
 
-    <a href="service.html">Services</a>
+            <form class="enquiry-card">
 
-    <a href="enquiry.html">Enquiry</a>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-    <a href="contact.html">Contact</a>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-</nav>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
 
-    <h1>Premier Football Academy</h1>
+                <div class="form-group">
+                    <label for="programme">Programme</label>
+                    <select id="programme" name="programme">
+                        <option value="">Select a programme</option>
+                        <option value="football-training">Football Training</option>
+                        <option value="youth-development">Youth Development</option>
+                        <option value="skills-development">Skills Development</option>
+                        <option value="coaching-programmes">Coaching Programmes</option>
+                    </select>
+                </div>
 
-    <h2>Make an Enquiry</h2>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6"></textarea>
+                </div>
 
-    <p>
-        Complete the form below if you would like
-        more information about our programmes.
-    </p>
+                <button type="submit">Submit Enquiry</button>
 
-    <form>
+            </form>
+        </section>
+    </main>
 
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name">
+    <footer class="site-footer">
+        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>Gqeberha, South Africa</p>
+    </footer>
 
-        <br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-
-        <br><br>
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone">
-
-        <br><br>
-
-        <label for="message">Message:</label>
-
-        <br>
-
-        <textarea id="message" name="message" rows="6"></textarea>
-
-        <br><br>
-
-        <button type="submit">Submit Enquiry</button>
-
-    </form>
-
+    <script src="JS/script.js"></script>
 </body>
 
 </html>

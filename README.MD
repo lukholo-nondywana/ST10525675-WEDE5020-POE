@@ -99,11 +99,46 @@ Week 8: GitHub and submission
 * Added enquiry form.
 * Added contact page.
 
+### Version 2.0 — Part 2: CSS Styling and Responsive Design
+
+**Corrections from Part 1 feedback:**
+
+* Restructured every page to use semantic `<header>`, `<nav>`, `<main>` and `<footer>` elements. The Part 1 stylesheet already targeted these elements, but the HTML had no matching tags, so those rules were never actually being applied.
+* Added a `<meta name="description">` to each page and an `aria-current="page"` / `.active` class on the current navigation link for accessibility and usability.
+* Added a "Programme" field to the Enquiry form, matching the field listed in the Part 1 proposal but missing from the original form.
+* Added a skip-to-content link for keyboard and screen-reader users.
+
+**CSS styling for desktop:**
+
+* Rebuilt `CSS/style.css` from scratch using CSS custom properties (`:root` variables) for the colour scheme, spacing and shadows, so the whole site can be re-themed by editing one place.
+* Applied a consistent typography scale (`--fs-h1` to `--fs-small`) using `font-family`, `font-size`, `line-height` and `letter-spacing`.
+* Built the header/navigation with Flexbox, the Home page highlights and Services grid with CSS Grid (`repeat(auto-fit, minmax(...))`), and the About/Services intros with a two-column Flexbox layout.
+* Added visual styling (`box-shadow`, `border`, `border-radius`) and interactive states (`:hover`, `:focus-visible`, `:active`) on links, buttons and form fields.
+
+**Responsive design:**
+
+* Added a hero section on the Home page using the HTML `<picture>` element with `srcset`/`media` conditions, serving a 600px, 1000px or 1600px-wide image depending on screen size.
+* Added `srcset`/`sizes` responsive images to the About and Services pages (500w/900w).
+* Resized and compressed all photos (originals were 1.2–2MB each; new versions are all under 200KB) to improve load time.
+* Set breakpoints at `900px` (tablet) and `600px` (mobile) using media queries: navigation stacks, two-column sections become single-column, hero height and spacing reduce for smaller screens.
+* Used relative units (`rem`, `%`, `vh`, `ch`, `clamp()`) throughout instead of fixed pixel values so type and spacing scale with the viewport.
+* Tested the site at desktop (1440px), tablet (820px) and mobile (390px) widths — screenshots saved in `/screenshots`.
+
+## Screenshot Evidence (Part 2)
+
+Desktop, tablet and mobile screenshots of every page are saved in the `screenshots/` folder:
+
+* `index-desktop.png`, `index-tablet.png`, `index-mobile.png`
+* `about-desktop.png`, `about-tablet.png`, `about-mobile.png`
+* `service-desktop.png`, `service-tablet.png`, `service-mobile.png`
+* `enquiry-desktop.png`, `enquiry-tablet.png`, `enquiry-mobile.png`
+* `contact-desktop.png`, `contact-tablet.png`, `contact-mobile.png`
+
 ## References
 
-World Wide Web Consortium (W3C).
+World Wide Web Consortium (W3C). HTML and CSS specifications. https://www.w3.org/
 
-Mozilla Developer Network (MDN).
+Mozilla Developer Network (MDN). CSS Flexbox, Grid, media queries and responsive images documentation. https://developer.mozilla.org/
 
 FIFA.
 

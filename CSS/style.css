@@ -1,93 +1,491 @@
-/* Basic website styling */
+/* ==========================================================================
+   PREMIER FOOTBALL ACADEMY — STYLESHEET
+   WEDE5020 Part 2: CSS Styling and Responsive Design
+   ========================================================================== */
 
-body {
-    font-family: Arial, sans-serif;
+/* --------------------------------------------------------------------------
+   2.2 BASE STYLE — CSS reset + design tokens (custom properties)
+   Custom properties let us define the colour scheme and spacing ONCE and
+   reuse it everywhere. This is the "cascading" part of CSS: change a value
+   here and it updates the whole site.
+   -------------------------------------------------------------------------- */
+* ,
+*::before,
+*::after {
+    box-sizing: border-box; /* padding/border no longer add to an element's width */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #222;
 }
 
-/* Header */
+:root {
+    /* Colour scheme (from the Part 1 proposal: dark blue, green, white) */
+    --color-navy: #0b2545;
+    --color-navy-dark: #071a33;
+    --color-green: #087f5b;
+    --color-green-light: #2fb380;
+    --color-white: #ffffff;
+    --color-off-white: #f5f6f4;
+    --color-text: #1c1c1c;
+    --color-text-muted: #55606b;
+    --color-border: #e1e4e1;
 
-header {
-    background-color: #0b2545;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    /* Typography scale — a consistent ratio between sizes (2.3) */
+    --fs-h1: clamp(2rem, 4vw + 1rem, 3rem);
+    --fs-h2: clamp(1.5rem, 2vw + 1rem, 2rem);
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    /* Layout tokens */
+    --max-width: 1100px;
+    --radius: 8px;
+    --shadow: 0 10px 30px rgba(11, 37, 69, 0.08);
+    --transition: 0.2s ease-in-out;
 }
 
-/* Navigation */
-
-nav {
-    margin-top: 15px;
+/* --------------------------------------------------------------------------
+   2.3 TYPOGRAPHY
+   Arial/sans-serif is used everywhere for readability, as set out in the
+   proposal. Hierarchy comes from size, weight and spacing, not a second font.
+   -------------------------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
 }
 
-nav a {
-    color: white;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-off-white);
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--color-navy);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); margin-bottom: 1rem; }
+h3 { font-size: var(--fs-h3); color: var(--color-green); margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; max-width: 65ch; } /* 65ch keeps lines easy to read */
+
+a { color: var(--color-green); }
+
+ul { list-style: none; }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: 0.75rem 1rem;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   2.4 LAYOUT STRUCTURE — Header / Navigation (Flexbox)
+   -------------------------------------------------------------------------- */
+.site-header {
+    background-color: var(--color-navy);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    color: var(--color-white);
+    font-size: 1.25rem;
+    font-weight: 700;
     text-decoration: none;
-    margin: 10px;
-    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.logo span {
+    color: var(--color-green-light);
 }
 
-/* Main content */
+.site-nav ul {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
+.site-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--fs-small);
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--color-green-light);
+}
+
+.site-nav a.active {
+    border-bottom-color: var(--color-green-light);
+}
+
+/* --------------------------------------------------------------------------
+   MAIN CONTENT WRAPPER
+   -------------------------------------------------------------------------- */
 main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-    background-color: white;
+    display: block;
 }
 
-/* Headings */
-
-h2 {
-    color: #0b2545;
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
 }
 
-h3 {
-    color: #087f5b;
-}
-
-/* Hero section */
-
+/* --------------------------------------------------------------------------
+   HERO SECTION (Home page)
+   Uses <picture> in the HTML to serve a different image file per screen
+   size (3.3 Responsive Images), and a CSS gradient overlay (2.5 Visual
+   Styles) so the white text stays readable over the photo.
+   -------------------------------------------------------------------------- */
 .hero {
-    text-align: center;
-    padding: 50px 20px;
+    position: relative;
+    color: var(--color-white);
+    isolation: isolate;
 }
 
-/* Buttons */
+.hero-media img {
+    width: 100%;
+    height: 65vh;
+    min-height: 380px;
+    object-fit: cover;
+}
 
-.button,
-button {
-    background-color: #087f5b;
-    color: white;
-    padding: 10px 20px;
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 26, 51, 0.55) 0%, rgba(7, 26, 51, 0.85) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.hero-content h1 { color: var(--color-white); }
+.hero-content p {
+    max-width: 45ch;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS — visual styles + interactive pseudo-classes (2.5)
+   -------------------------------------------------------------------------- */
+.btn,
+button,
+input[type="submit"] {
+    display: inline-block;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: var(--fs-small);
     border: none;
+    border-radius: var(--radius);
+    padding: 0.85em 1.75em;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
-/* Forms */
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--color-green-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn:active,
+button:active {
+    transform: translateY(0);
+}
+
+.btn:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-green-light);
+    outline-offset: 2px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+}
+
+/* --------------------------------------------------------------------------
+   HIGHLIGHTS GRID (Home page) — CSS Grid (2.4)
+   -------------------------------------------------------------------------- */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.highlight-card,
+.service-card,
+.contact-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid var(--color-green);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition);
+}
+
+.highlight-card:hover,
+.service-card:hover,
+.contact-card:hover {
+    transform: translateY(-4px);
+}
+
+/* CTA banner */
+.cta-banner {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.cta-banner h2 { color: var(--color-white); }
+.cta-banner p { margin: 0 auto 1.5rem; }
+
+/* --------------------------------------------------------------------------
+   ABOUT PAGE — Flexbox two-column layout (2.4)
+   -------------------------------------------------------------------------- */
+.about-intro {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.about-intro img {
+    flex: 1 1 320px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.about-intro-text {
+    flex: 1 1 320px;
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.value-grid .highlight-card { border-top-color: var(--color-navy); }
+
+/* --------------------------------------------------------------------------
+   SERVICES PAGE — Grid layout with a supporting image (2.4)
+   -------------------------------------------------------------------------- */
+.services-intro {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.services-intro img {
+    flex: 1 1 280px;
+    max-width: 320px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.services-intro-text { flex: 2 1 400px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   ENQUIRY PAGE — Form styling with :focus states (2.5)
+   -------------------------------------------------------------------------- */
+.enquiry-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: var(--fs-small);
+    color: var(--color-navy);
+}
 
 input,
 select,
 textarea {
     width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    margin-top: 5px;
+    font: inherit;
+    padding: 0.65em 0.85em;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-off-white);
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-/* Footer */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.2);
+    background-color: var(--color-white);
+}
 
-footer {
-    background-color: #0b2545;
-    color: white;
+textarea { resize: vertical; min-height: 140px; }
+
+/* --------------------------------------------------------------------------
+   CONTACT PAGE — Grid of info cards (2.4)
+   -------------------------------------------------------------------------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-card ul { margin-top: 0.5rem; }
+.contact-card li { margin-bottom: 0.25rem; }
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: var(--color-navy-dark);
+    color: var(--color-white);
     text-align: center;
-    padding: 15px;
+    padding: 1.75rem 1.5rem;
+    font-size: var(--fs-small);
+}
+
+.site-footer p { margin-bottom: 0.25rem; max-width: none; }
+
+/* ==========================================================================
+   3. RESPONSIVE DESIGN — Breakpoints and media queries
+   Breakpoints chosen: 900px (tablet) and 600px (mobile), matching common
+   device widths. Grid/Flexbox already reflow automatically in many places;
+   these media queries fine-tune font sizes, spacing and the nav for touch.
+   ========================================================================== */
+
+/* ---- Tablet: max-width 900px ---- */
+@media (max-width: 900px) {
+    .container { padding: 2.5rem 1.25rem; }
+
+    .about-intro,
+    .services-intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Once stacked, the image no longer needs to "grow" along the main
+       axis — without this, flex-grow can stretch the image's box far
+       beyond its real height and leave a gap of empty space below it. */
+    .about-intro img,
+    .services-intro img {
+        flex: none;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .about-intro-text,
+    .services-intro-text {
+        flex: none;
+    }
+
+    .value-grid { grid-template-columns: 1fr; }
+
+    .hero-content p { font-size: 1rem; }
+}
+
+/* ---- Mobile: max-width 600px ---- */
+@media (max-width: 600px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .site-nav ul {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.75rem 1rem;
+    }
+
+    .hero-media img { height: 55vh; min-height: 300px; }
+
+    .container { padding: 2rem 1rem; }
+
+    .enquiry-card { padding: 1.25rem; }
+
+    .cta-banner { padding: 2.5rem 1rem; }
 }

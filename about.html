@@ -4,48 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Learn about Premier Football Academy's history, mission and vision.">
     <title>Premier Football Academy - About Us</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-    <nav>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <a href="index.html">Home</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="enquiry.html">Enquiry</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <a href="about.html">About Us</a>
+    <main id="main">
+        <section class="container">
+            <h1>About Us</h1>
 
-    <a href="service.html">Services</a>
+            <div class="about-intro">
+                <img src="Images/about-900.jpg"
+                     srcset="Images/about-500.jpg 500w, Images/about-900.jpg 900w"
+                     sizes="(max-width: 700px) 100vw, 40vw"
+                     width="900" height="1125"
+                     alt="A Premier Football Academy player holding a football on the pitch">
+                <div class="about-intro-text">
+                    <p>
+                        Premier Football Academy is a fictional football academy
+                        that helps young players develop their football skills.
+                    </p>
+                    <p>
+                        The academy was created to provide young football players with an
+                        opportunity to improve their skills in a safe and organised environment,
+                        with a focus on training, teamwork, discipline and personal development.
+                    </p>
+                </div>
+            </div>
 
-    <a href="enquiry.html">Enquiry</a>
+            <div class="value-grid">
+                <article class="highlight-card">
+                    <h3>Our Mission</h3>
+                    <p>
+                        Our mission is to help young football players improve
+                        through structured training, coaching and teamwork.
+                    </p>
+                </article>
+                <article class="highlight-card">
+                    <h3>Our Vision</h3>
+                    <p>
+                        Our vision is to become a trusted football academy
+                        that helps young players reach their full potential.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-    <a href="contact.html">Contact</a>
+    <footer class="site-footer">
+        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>Gqeberha, South Africa</p>
+    </footer>
 
-</nav>
-
-    <h1>Premier Football Academy</h1>
-
-    <h2>About Us</h2>
-
-    <p>
-        Premier Football Academy is a fictional football academy
-        that helps young players develop their football skills.
-    </p>
-
-    <h3>Our Mission</h3>
-
-    <p>
-        Our mission is to help young football players improve
-        through training, coaching and teamwork.
-    </p>
-
-    <h3>Our Vision</h3>
-
-    <p>
-        Our vision is to become a trusted football academy
-        that helps young players reach their potential.
-    </p>
-
+    <script src="JS/script.js"></script>
 </body>
 
 </html>
