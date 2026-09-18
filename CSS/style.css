@@ -1,0 +1,93 @@
+/* Basic website styling */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+/* Header */
+
+header {
+    background-color: #0b2545;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation */
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+}
+
+/* Headings */
+
+h2 {
+    color: #0b2545;
+}
+
+h3 {
+    color: #087f5b;
+}
+
+/* Hero section */
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Buttons */
+
+.button,
+button {
+    background-color: #087f5b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Forms */
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #0b2545;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
