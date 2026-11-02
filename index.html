@@ -5,7 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premier Football Academy offers structured football training and coaching programmes for young players in Gqeberha.">
-    <title>Premier Football Academy</title>
+    <title>Premier Football Academy | Youth Football Training in Gqeberha</title>
+    <meta name="keywords" content="football academy, youth football training, football coaching, Gqeberha, Port Elizabeth, skills development">
+    <meta name="author" content="Lukholo Nondywana">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Premier Football Academy | Youth Football Training in Gqeberha">
+    <meta property="og:description" content="Premier Football Academy offers structured football training and coaching programmes for young players in Gqeberha.">
+    <meta property="og:image" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/youth-football-overhead-kick-1600.jpg">
+    <meta property="og:url" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SportsClub","name":"Premier Football Academy","sport":"Soccer","url":"https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/","description":"Football training and youth development programmes for young players in Gqeberha.","telephone":"+27410000000","email":"info@premierfootballacademy.example","image":"https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/youth-football-overhead-kick-1600.jpg","address":{"@type":"PostalAddress","addressLocality":"Gqeberha","addressRegion":"Eastern Cape","addressCountry":"ZA"},"geo":{"@type":"GeoCoordinates","latitude":-33.9608,"longitude":25.6022},"areaServed":"Nelson Mandela Bay","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"13:00"}],"sameAs":["https://www.facebook.com/","https://www.instagram.com/","https://x.com/"]}
+    </script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; form-action 'self' https://jsonplaceholder.typicode.com; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -16,7 +31,8 @@
         <div class="header-inner">
             <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
             <nav class="site-nav" aria-label="Main navigation">
-                <ul>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
                     <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -30,9 +46,9 @@
     <main id="main">
         <section class="hero">
             <picture class="hero-media">
-                <source media="(max-width: 600px)" srcset="Images/hero-600.jpg">
-                <source media="(max-width: 1000px)" srcset="Images/hero-1000.jpg">
-                <img src="Images/hero-1600.jpg" alt="Young footballer striking an overhead kick during training" loading="eager">
+                <source media="(max-width: 600px)" srcset="Images/youth-football-overhead-kick-600.jpg">
+                <source media="(max-width: 1000px)" srcset="Images/youth-football-overhead-kick-1000.jpg">
+                <img src="Images/youth-football-overhead-kick-1600.jpg" alt="Young footballer striking an overhead kick during training" loading="eager" fetchpriority="high">
             </picture>
             <div class="hero-content">
                 <h1>Premier Football Academy</h1>
@@ -43,6 +59,7 @@
 
         <section class="container">
             <h2>Why Train With Us</h2>
+            <p>Premier Football Academy is a youth football academy in Gqeberha (Port Elizabeth), Nelson Mandela Bay. Browse our <a href="service.html">football training programmes</a>, read <a href="about.html">about our academy</a> or <a href="enquiry.html">send us an enquiry</a>.</p>
             <div class="highlights-grid">
                 <article class="highlight-card">
                     <h3>Structured Training</h3>
@@ -67,11 +84,13 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Premier Football Academy. All rights reserved.</p>
         <p>Gqeberha, South Africa</p>
+        <p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="JS/data.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </body>
 
 </html>

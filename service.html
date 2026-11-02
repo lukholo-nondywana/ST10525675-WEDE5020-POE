@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore the football training and coaching programmes offered by Premier Football Academy.">
-    <title>Premier Football Academy - Services</title>
+    <title>Football Training Programmes & Coaching | Premier Football Academy</title>
+    <meta name="keywords" content="football training, youth development, skills development, coaching programmes, Gqeberha">
+    <meta name="author" content="Lukholo Nondywana">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/service.html">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Football Training Programmes & Coaching | Premier Football Academy">
+    <meta property="og:description" content="Explore the football training and coaching programmes offered by Premier Football Academy.">
+    <meta property="og:image" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/football-ball-control-skills-900.jpg">
+    <meta property="og:url" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/service.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; form-action 'self' https://jsonplaceholder.typicode.com; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -16,7 +28,8 @@
         <div class="header-inner">
             <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
             <nav class="site-nav" aria-label="Main navigation">
-                <ul>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="service.html" class="active" aria-current="page">Services</a></li>
@@ -32,8 +45,8 @@
             <h1>Our Services</h1>
 
             <div class="services-intro">
-                <img src="Images/skills-900.jpg"
-                     srcset="Images/skills-500.jpg 500w, Images/skills-900.jpg 900w"
+                <img src="Images/football-ball-control-skills-900.jpg"
+                     srcset="Images/football-ball-control-skills-500.jpg 500w, Images/football-ball-control-skills-900.jpg 900w"
                      sizes="(max-width: 700px) 100vw, 30vw"
                      width="900" height="1600"
                      alt="Close-up of a player's boot about to strike the ball, showing ball control skills">
@@ -43,10 +56,18 @@
                         develop young players at every stage, from first touches on the ball
                         to structured, competitive coaching.
                     </p>
+                    <p>Ready to join? <a href="enquiry.html">Send an enquiry</a> or <a href="contact.html">contact us</a>.</p>
                 </div>
             </div>
 
-            <div class="services-grid">
+            <h2>Our Programmes</h2>
+            <div class="filters" role="search">
+                <div class="form-group"><label for="svc-search">Search programmes</label><input type="search" id="svc-search" placeholder="e.g. passing, coaching"></div>
+                <div class="form-group"><label for="svc-level">Level</label><select id="svc-level"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+                <div class="form-group"><label for="svc-sort">Sort by</label><select id="svc-sort"><option value="name">Name (A-Z)</option><option value="price-asc">Price (low to high)</option><option value="price-desc">Price (high to low)</option></select></div>
+            </div>
+            <p id="svc-count" role="status" aria-live="polite"></p>
+            <div class="services-grid" id="services-grid">
                 <article class="service-card">
                     <h3>Football Training</h3>
                     <p>Our football training programme helps players improve their football skills.</p>
@@ -64,15 +85,24 @@
                     <p>Our coaching programmes provide structured football activities for players.</p>
                 </article>
             </div>
+
+            <h2 class="section-gap">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="acc-item"><h3><button type="button" class="acc-btn" aria-expanded="false" aria-controls="faq1">What age groups do you train?</button></h3><div class="acc-panel" id="faq1" hidden><p>Our programmes are designed for young players. Contact us to find the right group for your child's age and experience.</p></div></div>
+                <div class="acc-item"><h3><button type="button" class="acc-btn" aria-expanded="false" aria-controls="faq2">Do players need previous experience?</button></h3><div class="acc-panel" id="faq2" hidden><p>No. Beginners are welcome, and sessions are structured so every player can improve at their own level.</p></div></div>
+                <div class="acc-item"><h3><button type="button" class="acc-btn" aria-expanded="false" aria-controls="faq3">How do I register?</button></h3><div class="acc-panel" id="faq3" hidden><p>Complete the <a href="enquiry.html">enquiry form</a> and a coach will contact you with the next steps.</p></div></div>
+            </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Premier Football Academy. All rights reserved.</p>
         <p>Gqeberha, South Africa</p>
+        <p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="JS/data.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </body>
 
 </html>

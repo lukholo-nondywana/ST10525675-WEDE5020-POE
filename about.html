@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about Premier Football Academy's history, mission and vision.">
-    <title>Premier Football Academy - About Us</title>
+    <title>About Us | Premier Football Academy, Gqeberha</title>
+    <meta name="keywords" content="about football academy, youth development, mission, vision, football coaches Gqeberha">
+    <meta name="author" content="Lukholo Nondywana">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/about.html">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | Premier Football Academy, Gqeberha">
+    <meta property="og:description" content="Learn about Premier Football Academy's history, mission and vision.">
+    <meta property="og:image" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/academy-player-holding-football-900.jpg">
+    <meta property="og:url" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/about.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; form-action 'self' https://jsonplaceholder.typicode.com; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -16,7 +28,8 @@
         <div class="header-inner">
             <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
             <nav class="site-nav" aria-label="Main navigation">
-                <ul>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -32,8 +45,8 @@
             <h1>About Us</h1>
 
             <div class="about-intro">
-                <img src="Images/about-900.jpg"
-                     srcset="Images/about-500.jpg 500w, Images/about-900.jpg 900w"
+                <img src="Images/academy-player-holding-football-900.jpg"
+                     srcset="Images/academy-player-holding-football-500.jpg 500w, Images/academy-player-holding-football-900.jpg 900w"
                      sizes="(max-width: 700px) 100vw, 40vw"
                      width="900" height="1125"
                      alt="A Premier Football Academy player holding a football on the pitch">
@@ -47,9 +60,11 @@
                         opportunity to improve their skills in a safe and organised environment,
                         with a focus on training, teamwork, discipline and personal development.
                     </p>
+                    <p>Our <a href="service.html">training programmes</a> are open to young players across Gqeberha. <a href="enquiry.html">Make an enquiry</a> to find out more.</p>
                 </div>
             </div>
 
+            <h2>Our Mission and Vision</h2>
             <div class="value-grid">
                 <article class="highlight-card">
                     <h3>Our Mission</h3>
@@ -66,15 +81,25 @@
                     </p>
                 </article>
             </div>
+
+            <h2 class="section-gap">Academy Gallery</h2>
+            <p>Select a photo to view it larger.</p>
+            <div class="gallery">
+                <button type="button" class="gallery-item" data-full="Images/youth-football-overhead-kick-1600.jpg" data-alt="Young footballer striking an overhead kick during training"><img src="Images/youth-football-overhead-kick-600.jpg" alt="Young footballer striking an overhead kick during training" loading="lazy" width="600" height="337"></button>
+                <button type="button" class="gallery-item" data-full="Images/academy-player-holding-football-900.jpg" data-alt="A Premier Football Academy player holding a football on the pitch"><img src="Images/academy-player-holding-football-500.jpg" alt="A Premier Football Academy player holding a football on the pitch" loading="lazy" width="500" height="625"></button>
+                <button type="button" class="gallery-item" data-full="Images/football-ball-control-skills-900.jpg" data-alt="Close-up of a player's boot about to strike the ball"><img src="Images/football-ball-control-skills-500.jpg" alt="Close-up of a player's boot about to strike the ball" loading="lazy" width="500" height="888"></button>
+            </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Premier Football Academy. All rights reserved.</p>
         <p>Gqeberha, South Africa</p>
+        <p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="JS/data.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </body>
 
 </html>

@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Send an enquiry to Premier Football Academy about our training programmes.">
-    <title>Premier Football Academy - Enquiry</title>
+    <title>Enquire About Football Training | Premier Football Academy</title>
+    <meta name="keywords" content="football academy enquiry, register for football training, join football academy Gqeberha">
+    <meta name="author" content="Lukholo Nondywana">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/enquiry.html">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Enquire About Football Training | Premier Football Academy">
+    <meta property="og:description" content="Send an enquiry to Premier Football Academy about our training programmes.">
+    <meta property="og:image" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/youth-football-overhead-kick-1000.jpg">
+    <meta property="og:url" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/enquiry.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; form-action 'self' https://jsonplaceholder.typicode.com; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -16,7 +28,8 @@
         <div class="header-inner">
             <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
             <nav class="site-nav" aria-label="Main navigation">
-                <ul>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -32,54 +45,33 @@
             <h1>Make an Enquiry</h1>
             <p>
                 Complete the form below if you would like
-                more information about our programmes.
+                more information about our <a href="service.html">programmes</a>, fees and availability.
             </p>
 
-            <form class="enquiry-card">
-
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="programme">Programme</label>
-                    <select id="programme" name="programme">
-                        <option value="">Select a programme</option>
-                        <option value="football-training">Football Training</option>
-                        <option value="youth-development">Youth Development</option>
-                        <option value="skills-development">Skills Development</option>
-                        <option value="coaching-programmes">Coaching Programmes</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6"></textarea>
-                </div>
-
+            <form class="enquiry-card" id="enquiry-form" action="https://jsonplaceholder.typicode.com/posts" method="post" novalidate>
+                <div class="hp" aria-hidden="true"><label for="website">Leave this field empty</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+                <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required maxlength="80" autocomplete="name"><span class="error" id="name-error"></span></div>
+                <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required maxlength="120" autocomplete="email"><span class="error" id="email-error"></span></div>
+                <div class="form-group"><label for="phone">Phone Number (optional)</label><input type="tel" id="phone" name="phone" placeholder="e.g. 0821234567" autocomplete="tel"><span class="error" id="phone-error"></span></div>
+                <div class="form-group"><label for="programme">Programme</label><select id="programme" name="programme"><option value="">Select a programme</option><option value="football-training">Football Training</option><option value="youth-development">Youth Development</option><option value="skills-development">Skills Development</option><option value="coaching-programmes">Coaching Programmes</option></select><span class="error" id="programme-error"></span><p class="programme-info" id="programme-info" aria-live="polite"></p></div>
+                <div class="form-group"><label for="players">Number of players (1-6)</label><input type="number" id="players" name="players" min="1" max="6" value="1"><span class="error" id="players-error"></span></div>
+                <div class="form-group"><label for="startdate">Preferred start date</label><input type="date" id="startdate" name="startdate"><span class="error" id="startdate-error"></span></div>
+                <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" maxlength="500"></textarea><span class="counter" id="message-count">0 / 500</span><span class="error" id="message-error"></span></div>
                 <button type="submit">Submit Enquiry</button>
-
+                <p class="error" id="form-error" role="alert"></p>
             </form>
+            <section id="quote" class="quote" tabindex="-1" hidden></section>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Premier Football Academy. All rights reserved.</p>
         <p>Gqeberha, South Africa</p>
+        <p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="JS/data.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </body>
 
 </html>

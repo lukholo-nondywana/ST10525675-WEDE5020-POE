@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/sitemap.xml

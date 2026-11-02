@@ -5,7 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact Premier Football Academy for more information about our programmes.">
-    <title>Premier Football Academy - Contact</title>
+    <title>Contact Premier Football Academy | Gqeberha</title>
+    <meta name="keywords" content="contact football academy, football academy location Gqeberha, football academy phone email">
+    <meta name="author" content="Lukholo Nondywana">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/contact.html">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Premier Football Academy | Gqeberha">
+    <meta property="og:description" content="Contact Premier Football Academy for more information about our programmes.">
+    <meta property="og:image" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/Images/youth-football-overhead-kick-1000.jpg">
+    <meta property="og:url" content="https://lukholo-nondywana.github.io/ST10525675-WEDE5020-POE/contact.html">
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; form-action 'self' https://jsonplaceholder.typicode.com; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -16,7 +29,8 @@
         <div class="header-inner">
             <a class="logo" href="index.html">Premier <span>Football</span> Academy</a>
             <nav class="site-nav" aria-label="Main navigation">
-                <ul>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -35,6 +49,7 @@
                 please contact us using the details below.
             </p>
 
+            <h2>Get in Touch</h2>
             <div class="contact-grid">
                 <article class="contact-card">
                     <h3>Email</h3>
@@ -59,16 +74,44 @@
                         <li>Sunday: Closed</li>
                     </ul>
                 </article>
+                <article class="contact-card"><h3>Follow Us</h3><p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p></article>
             </div>
+            <h2 class="section-gap">Send Us a Message</h2>
+            <p>Prefer to write to us? Complete the form below. Looking for fees or availability? Use our <a href="enquiry.html">enquiry form</a> or view our <a href="service.html">programmes</a>.</p>
+            <form class="enquiry-card" id="contact-form" action="https://jsonplaceholder.typicode.com/posts" method="post" novalidate>
+                <div class="hp" aria-hidden="true"><label for="c-website">Leave this field empty</label><input type="text" id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
+                <div class="form-group"><label for="c-name">Full Name</label><input type="text" id="c-name" name="name" maxlength="80" autocomplete="name"><span class="error" id="c-name-error"></span></div>
+                <div class="form-group"><label for="c-email">Email Address</label><input type="email" id="c-email" name="email" maxlength="120" autocomplete="email"><span class="error" id="c-email-error"></span></div>
+                <div class="form-group"><label for="c-phone">Phone Number (optional)</label><input type="tel" id="c-phone" name="phone" placeholder="e.g. 0821234567" autocomplete="tel"><span class="error" id="c-phone-error"></span></div>
+                <div class="form-group"><label for="c-type">Type of message</label><select id="c-type" name="type"><option value="">Select a type</option><option>General question</option><option>Feedback</option><option>Sponsorship</option><option>Volunteering</option><option>Other</option></select><span class="error" id="c-type-error"></span></div>
+                <div class="form-group"><label for="c-subject">Subject</label><input type="text" id="c-subject" name="subject" maxlength="100"><span class="error" id="c-subject-error"></span></div>
+                <div class="form-group"><label for="c-message">Message</label><textarea id="c-message" name="message" rows="6" maxlength="1000"></textarea><span class="counter" id="c-message-count">0 / 1000</span><span class="error" id="c-message-error"></span></div>
+                <button type="submit">Send Message</button>
+                <p class="error" id="c-form-error" role="alert"></p>
+            </form>
+            <section id="email-preview" class="quote" tabindex="-1" hidden>
+                <h3>Your message is ready to send</h3>
+                <p>Your message was submitted and compiled into an email. Click the button to send it from your email app.</p>
+                <p><strong>To:</strong> <span id="email-to"></span></p>
+                <p><strong>Subject:</strong> <span id="email-subject"></span></p>
+                <pre id="email-body"></pre>
+                <a class="btn" id="email-send" href="#">Send as email</a>
+            </section>
+            <h2 class="section-gap">Find Us</h2>
+            <div id="map" class="map" role="region" aria-label="Map showing the academy location in Gqeberha"></div>
+            <p class="map-note">Map data &copy; OpenStreetMap contributors. Location shown is approximate for this fictional academy.</p>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Premier Football Academy. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Premier Football Academy. All rights reserved.</p>
         <p>Gqeberha, South Africa</p>
+        <p class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></p>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="lib/leaflet/leaflet.js" defer></script>
+    <script src="JS/data.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </body>
 
 </html>
